@@ -1,0 +1,44 @@
+form {
+  font-family: "Roboto", sans-serif;
+}
+
+h2 {
+  font-family: "Explora", serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  font-family: "Roboto", sans-serif;
+}
+
+.date-input {
+  font-family: "Roboto", sans-serif;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  background-color: #92c7cf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.cancel-button {
+  background-color: #92c7cf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.submit-button:hover {
+  background-color: #aad7d9;
+}
+.cancel-button:hover {
+  background-color: #aad7d9;
+}

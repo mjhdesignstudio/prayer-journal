@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import "./entryform.css";
+
 export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
   const [title, setTitle] = useState(entry?.title || "");
   const [content, setContent] = useState(entry?.content || "");
@@ -56,9 +58,12 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
       <h2>{isEditing ? "Edit Prayer Entry" : "New Prayer Entry"}</h2>
       <form onSubmit={handleSubmit} className="entry-form">
         <div className="form-group">
-          <label htmlFor="title">Prayer Title</label>
+          <label htmlFor="title" className="prayer-title-label">
+            Prayer Title:{" "}
+          </label>
           <input
             id="title"
+            className="form-input"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -67,9 +72,12 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="content">Prayer Content</label>
+          <label htmlFor="content" className="prayer-content-label">
+            Prayer Request:{" "}
+          </label>
           <textarea
             id="content"
+            className="form-input"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Describe your prayer..."
@@ -79,9 +87,12 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
 
         <div className="form-row">
           <div className="form-group">
-            <label htmlFor="createdDate">Date Created</label>
+            <label htmlFor="createdDate" className="created-date-label">
+              Date Created:{" "}
+            </label>
             <input
               id="createdDate"
+              className="created-date-input"
               type="date"
               value={createdDate}
               onChange={(e) => setCreatedDate(e.target.value)}
@@ -89,7 +100,7 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="isAnswered">
+            <label htmlFor="isAnswered" className="is-answer-label">
               <input
                 id="isAnswered"
                 type="checkbox"
@@ -104,9 +115,12 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
         {isAnswered && (
           <>
             <div className="form-group">
-              <label htmlFor="answeredDate">Date Answered</label>
+              <label htmlFor="answeredDate" className="answered-date-label">
+                Date Answered:{" "}
+              </label>
               <input
                 id="answeredDate"
+                className="answered-date-input"
                 type="date"
                 value={answeredDate}
                 onChange={(e) => setAnsweredDate(e.target.value)}
@@ -114,9 +128,12 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
             </div>
 
             <div className="form-group">
-              <label htmlFor="answerText">How Was It Answered?</label>
+              <label htmlFor="answerText" className="answer-text-label">
+                How Was It Answered?{" "}
+              </label>
               <textarea
                 id="answerText"
+                className="form-input"
                 value={answerText}
                 onChange={(e) => setAnswerText(e.target.value)}
                 placeholder="Describe how your prayer was answered..."
@@ -127,14 +144,10 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
         )}
 
         <div className="form-actions">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="submit-button">
             {isEditing ? "Update Entry" : "Add Entry"}
           </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={onCancel}
-          >
+          <button type="button" className="cancel-button" onClick={onCancel}>
             Cancel
           </button>
         </div>

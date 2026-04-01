@@ -2,6 +2,8 @@ import { useState } from "react";
 import { EntryForm } from "./entryform.jsx";
 import { EntryList } from "./entrylist.jsx";
 
+import "./prayerjournal.css";
+
 export function PrayerJournal() {
   const [entries, setEntries] = useState([]);
   const [editingEntry, setEditingEntry] = useState(null);
@@ -43,7 +45,7 @@ export function PrayerJournal() {
       <header className="journal-header">
         <h1>Prayer Journal</h1>
         <button
-          className="btn btn-primary"
+          className="new-prayer-button"
           onClick={() => {
             setIsFormVisible(!isFormVisible);
             setEditingEntry(null);

@@ -1,0 +1,29 @@
+.entry-card {
+  background-color: rgba(251, 249, 241, 1);
+  border: 1px solid #e5d1da;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.edit-button {
+  background-color: #92c7cf;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-button {
+  background-color: #92c7cf;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}

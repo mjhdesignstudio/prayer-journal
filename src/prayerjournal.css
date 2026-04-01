@@ -1,0 +1,28 @@
+h1 {
+  font-family: "Explora", serif;
+  font-size: 62px;
+  text-align: center;
+}
+
+.prayer-journal {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(251, 249, 241, 0.8);
+}
+
+.new-prayer-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #92c7cf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-prayer-button:hover {
+  background-color: #aad7d9;
+}

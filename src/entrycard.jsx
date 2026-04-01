@@ -1,3 +1,5 @@
+import "./entrycard.css";
+
 export function EntryCard({ entry, onEdit, onDelete }) {
   const formatDate = (dateString) => {
     if (!dateString) return "Not set";
@@ -26,32 +28,29 @@ export function EntryCard({ entry, onEdit, onDelete }) {
 
       {entry.isAnswered && entry.answerText && (
         <div className="answer-section">
-          <h4 className="answer-label">Answer:</h4>
+          <h4 className="answer-label">Answer: </h4>
           <p className="answer-content">{entry.answerText}</p>
         </div>
       )}
 
       <div className="entry-dates">
         <div className="date-item">
-          <span className="date-label">Created:</span>
-          <span className="date-value">{formatDate(entry.createdDate)}</span>
+          <span className="date-label">Created: </span>
+          <span className="date-value"> {formatDate(entry.createdDate)}</span>
         </div>
         {entry.isAnswered && entry.answeredDate && (
           <div className="date-item answered-date">
-            <span className="date-label">Answered:</span>
+            <span className="date-label">Answered: </span>
             <span className="date-value">{formatDate(entry.answeredDate)}</span>
           </div>
         )}
       </div>
 
       <div className="entry-actions">
-        <button
-          className="btn btn-small btn-edit"
-          onClick={() => onEdit(entry)}
-        >
+        <button className="edit-button" onClick={() => onEdit(entry)}>
           Edit
         </button>
-        <button className="btn btn-small btn-delete" onClick={handleDelete}>
+        <button className="delete-button" onClick={handleDelete}>
           Delete
         </button>
       </div>
