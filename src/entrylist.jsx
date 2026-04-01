@@ -4,7 +4,7 @@ export function EntryList({ entries, onEdit, onDelete }) {
   if (entries.length === 0) {
     return (
       <div className="empty-state">
-        <p>No prayer entries yet. Click "+ New Prayer" to get started.</p>
+        <p>No prayer requests yet. Click "+ New Prayer" to get started.</p>
       </div>
     );
   }

@@ -56,102 +56,122 @@ export function EntryForm({ entry, onSubmit, onCancel, isEditing }) {
   return (
     <div className="entry-form-container">
       <h2>{isEditing ? "Edit Prayer Entry" : "New Prayer Entry"}</h2>
-      <form onSubmit={handleSubmit} className="entry-form">
-        <div className="form-group">
-          <label htmlFor="title" className="prayer-title-label">
-            Prayer Title:{" "}
-          </label>
-          <input
-            id="title"
-            className="form-input"
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter prayer title"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="content" className="prayer-content-label">
-            Prayer Request:{" "}
-          </label>
-          <textarea
-            id="content"
-            className="form-input"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="Describe your prayer..."
-            rows={4}
-          />
-        </div>
-
-        <div className="form-row">
+      <div className="form-container">
+        <form onSubmit={handleSubmit} className="entry-form">
           <div className="form-group">
-            <label htmlFor="createdDate" className="created-date-label">
-              Date Created:{" "}
-            </label>
-            <input
-              id="createdDate"
-              className="created-date-input"
-              type="date"
-              value={createdDate}
-              onChange={(e) => setCreatedDate(e.target.value)}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="isAnswered" className="is-answer-label">
-              <input
-                id="isAnswered"
-                type="checkbox"
-                checked={isAnswered}
-                onChange={(e) => setIsAnswered(e.target.checked)}
-              />
-              Prayer Answered
-            </label>
-          </div>
-        </div>
-
-        {isAnswered && (
-          <>
-            <div className="form-group">
-              <label htmlFor="answeredDate" className="answered-date-label">
-                Date Answered:{" "}
+            <div className="prayer-title">
+              <label htmlFor="title" className="prayer-title-label">
+                Prayer Title:{" "}
               </label>
               <input
-                id="answeredDate"
-                className="answered-date-input"
-                type="date"
-                value={answeredDate}
-                onChange={(e) => setAnsweredDate(e.target.value)}
+                id="title"
+                className="form-input"
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Enter prayer title"
               />
             </div>
+          </div>
 
-            <div className="form-group">
-              <label htmlFor="answerText" className="answer-text-label">
-                How Was It Answered?{" "}
+          <div className="form-group">
+            <div className="prayer-details">
+              <label htmlFor="content" className="prayer-content-label">
+                Prayer Request:{" "}
               </label>
               <textarea
-                id="answerText"
+                id="content"
                 className="form-input"
-                value={answerText}
-                onChange={(e) => setAnswerText(e.target.value)}
-                placeholder="Describe how your prayer was answered..."
-                rows={3}
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Describe your prayer..."
+                rows={4}
               />
             </div>
-          </>
-        )}
+          </div>
 
-        <div className="form-actions">
-          <button type="submit" className="submit-button">
-            {isEditing ? "Update Entry" : "Add Entry"}
-          </button>
-          <button type="button" className="cancel-button" onClick={onCancel}>
-            Cancel
-          </button>
-        </div>
-      </form>
+          <div className="form-row">
+            <div className="form-group">
+              <div className="create-date">
+                <label htmlFor="createdDate" className="created-date-label">
+                  Date Created:{" "}
+                </label>
+                <input
+                  id="createdDate"
+                  className="date-input"
+                  type="date"
+                  value={createdDate}
+                  onChange={(e) => setCreatedDate(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <div className="answered-checkbox">
+                <label htmlFor="isAnswered" className="is-answer-label">
+                  <input
+                    id="isAnswered"
+                    type="checkbox"
+                    checked={isAnswered}
+                    onChange={(e) => setIsAnswered(e.target.checked)}
+                  />
+                  Prayer Answered
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {isAnswered && (
+            <>
+              <div className="form-group">
+                <div className="answered-date">
+                  <label htmlFor="answeredDate" className="answered-date-label">
+                    Date Answered:{" "}
+                  </label>
+                  <input
+                    id="answeredDate"
+                    className="date-input"
+                    type="date"
+                    value={answeredDate}
+                    onChange={(e) => setAnsweredDate(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <div className="answered-details">
+                  <label htmlFor="answerText" className="answer-text-label">
+                    How Was It Answered?{" "}
+                  </label>
+                  <textarea
+                    id="answerText"
+                    className="form-input"
+                    value={answerText}
+                    onChange={(e) => setAnswerText(e.target.value)}
+                    placeholder="Describe how your prayer was answered..."
+                    rows={3}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          <div className="form-actions">
+            <div className="action-buttons">
+              <button type="submit" className="submit-button">
+                {isEditing ? "Update Entry" : "Add Entry"}
+              </button>
+              <button
+                type="button"
+                className="cancel-button"
+                onClick={onCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

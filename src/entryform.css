@@ -10,6 +10,14 @@ h2 {
 
 .form-input {
   font-family: "Roboto", sans-serif;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: max-content 1fr 2fr;
+  row-gap: 10px;
 }
 
 .date-input {
@@ -17,6 +25,13 @@ h2 {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .submit-button {
