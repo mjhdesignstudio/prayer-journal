@@ -1,5 +1,5 @@
 body {
-  background-image: url("public/sunbeamsinsky.jpg");
+  background-image: url("/sunbeamsinsky.jpg");
   background-size: cover;
   background-position: center;
   max-height: 100vh;
