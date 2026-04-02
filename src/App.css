@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #92c7cf;
+  --secondary-color: #aad7d9;
+  --third-color: #fbf9f1;
+  --fourth-color: #e5e1da;
+  --primary-font: "Roboto", sans-serif;
+  --secondary-font: "Explora", serif;
+}
+
 .app-container {
   max-width: 800px;
   margin: 0 auto;

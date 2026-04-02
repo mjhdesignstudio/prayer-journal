@@ -1,10 +1,23 @@
+:root {
+  --primary-color: #92c7cf;
+  --secondary-color: #aad7d9;
+  --third-color: #fbf9f1;
+  --fourth-color: #e5e1da;
+  --primary-font: "Roboto", sans-serif;
+  --secondary-font: "Explora", serif;
+}
+
+.entry-header h3 {
+  font-family: var(--secondary-font);
+  font-size: 32px;
+  margin-top: 5px;
+}
 .entry-card {
   background-color: rgba(251, 249, 241, 1);
   border: 1px solid #e5d1da;
   border-radius: 8px;
   padding: 15px;
-  margin-bottom: 15px;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--primary-font);
   font-weight: 300;
 }
 

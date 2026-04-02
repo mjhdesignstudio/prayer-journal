@@ -7,7 +7,7 @@ import "./prayerjournal.css";
 export function PrayerJournal() {
   const [entries, setEntries] = useState([]);
   const [editingEntry, setEditingEntry] = useState(null);
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
 
   const handleAddEntry = (entry) => {
     const newEntry = {
@@ -15,7 +15,7 @@ export function PrayerJournal() {
       id: Date.now().toString(),
     };
     setEntries([newEntry, ...entries]);
-    setIsFormVisible(false);
+    setIsAdding(false);
   };
 
   const handleEditEntry = (updatedEntry) => {
@@ -33,10 +33,16 @@ export function PrayerJournal() {
 
   const handleStartEdit = (entry) => {
     setEditingEntry(entry);
-    setIsFormVisible(false);
+    setIsAdding(false); // ensures add mode is off
   };
 
-  const handleCancelEdit = () => {
+  const handleStartAdd = () => {
+    setIsAdding(true);
+    setEditingEntry(null); // ensures edit mode is off
+  };
+
+  const handleCancel = () => {
+    setIsAdding(false);
     setEditingEntry(null);
   };
 
@@ -44,38 +50,37 @@ export function PrayerJournal() {
     <div className="prayer-journal">
       <header className="journal-header">
         <h1>Prayer Journal</h1>
-        <button
-          className="new-prayer-button"
-          onClick={() => {
-            setIsFormVisible(!isFormVisible);
-            setEditingEntry(null);
-          }}
-        >
-          {isFormVisible ? "Cancel" : "+ New Prayer"}
-        </button>
+
+        {/* Show button ONLY when not adding or editing */}
+        {!isAdding && !editingEntry && (
+          <button className="new-prayer-button" onClick={handleStartAdd}>
+            + New Prayer
+          </button>
+        )}
       </header>
 
-      {isFormVisible && (
-        <EntryForm
-          onSubmit={handleAddEntry}
-          onCancel={() => setIsFormVisible(false)}
-        />
+      {/* Add mode */}
+      {isAdding && (
+        <EntryForm onSubmit={handleAddEntry} onCancel={handleCancel} />
       )}
 
+      {/* Edit mode */}
       {editingEntry && (
         <EntryForm
           entry={editingEntry}
           onSubmit={handleEditEntry}
-          onCancel={handleCancelEdit}
+          onCancel={handleCancel}
           isEditing
         />
       )}
 
-      <EntryList
-        entries={entries}
-        onEdit={handleStartEdit}
-        onDelete={handleDeleteEntry}
-      />
+      {!isAdding && !editingEntry && (
+        <EntryList
+          entries={entries}
+          onEdit={handleStartEdit}
+          onDelete={handleDeleteEntry}
+        />
+      )}
     </div>
   );
 }
